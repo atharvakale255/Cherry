@@ -30,7 +30,7 @@ const cards = [
   },
   {
     id: "racing",
-    title: "Open when your thoughts won't slow down",
+    title: "Open when you're thinking too much",
     color: "bg-secondary/30",
     content: "I know your brain is running a million miles an hour right now. Let it run. But know this—you're not alone in this. Call me. Text me. Send me your rambling thoughts at 2am. That's what I'm here for. Let's untangle it together. 🌙"
   }
@@ -51,7 +51,7 @@ export function OpenWhenCards() {
           Open When...
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card, index) => (
             <motion.div
               key={card.id}
@@ -62,11 +62,11 @@ export function OpenWhenCards() {
             >
               <Button
                 variant="outline"
-                className={`w-full h-48 md:h-64 flex flex-col items-center justify-center gap-4 text-wrap p-6 border-2 border-dashed border-gray-300 hover:border-solid hover:border-gray-400 transition-all duration-300 bg-white/50 hover:bg-white paper-shadow ${card.color}`}
+                className={`w-full h-auto min-h-56 md:min-h-64 flex flex-col items-center justify-center gap-4 text-wrap p-6 border-2 border-dashed border-gray-300 hover:border-solid hover:border-gray-400 transition-all duration-300 bg-white/50 hover:bg-white paper-shadow overflow-hidden ${card.color}`}
                 onClick={() => setSelectedCard(card)}
               >
-                <Mail className="w-10 h-10 text-gray-600 opacity-50" />
-                <span className="font-hand text-2xl text-gray-700">{card.title}</span>
+                <Mail className="w-10 h-10 text-gray-600 opacity-50 flex-shrink-0" />
+                <span className="font-hand text-lg md:text-xl text-gray-700 leading-tight line-clamp-4">{card.title}</span>
               </Button>
             </motion.div>
           ))}
