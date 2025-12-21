@@ -29,10 +29,16 @@ const cards = [
     content: "You are enough. You have always been enough. Your weird jokes, your random thoughts, your messy days—they all make you perfectly, beautifully YOU. I didn't choose you by accident. I choose you every single day. ✨"
   },
   {
-    id: "racing",
+    id: "thinking",
     title: "Open when you're thinking too much",
     color: "bg-secondary/30",
     content: "I know your brain is running a million miles an hour right now. Let it run. But know this—you're not alone in this. Call me. Text me. Send me your rambling thoughts at 2am. That's what I'm here for. Let's untangle it together. 🌙"
+  },
+  {
+    id: "racing",
+    title: "Open when your thoughts won't slow down",
+    color: "bg-accent/30",
+    content: "Your mind is beautiful even when it's chaotic. Those racing thoughts? They're part of what makes you creative, passionate, and brilliant. Take a break. Drink some water. And remember—you don't have to figure everything out right now. 💫"
   }
 ];
 
