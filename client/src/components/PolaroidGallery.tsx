@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import photo1 from "@assets/WhatsApp_Image_2025-12-21_at_8.13.02_PM_1766328626458.jpeg";
-import photo2 from "@assets/generated_images/cozy_coffee_shop_hangout_aesthetic_photo.png";
+import photo2 from "@assets/WhatsApp_Image_2025-12-21_at_8.23.48_PM_1766329006035.jpeg";
 import photo3 from "@assets/generated_images/video_call_screenshot_aesthetic.png";
 
 const memories = [
