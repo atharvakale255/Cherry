@@ -5,22 +5,34 @@ import { Button } from "@/components/ui/button";
 
 const cards = [
   {
-    id: "miss",
-    title: "Open when you miss me",
+    id: "distant",
+    title: "Open when things feel distant",
     color: "bg-primary/20",
-    content: "Remember that distance is just a test to see how far love can travel. I'm always just a phone call away. Look up at the moon, we're seeing the same one. 🌙"
+    content: "Distance doesn't diminish what we have. In fact, it makes me realize how much you truly mean to me. We've crossed miles just to have conversations at 3am. That's love. That's us. Pick up the phone, I'm listening. 💕"
   },
   {
-    id: "sad",
-    title: "Open when you're sad",
+    id: "doubt",
+    title: "Open when you doubt yourself",
     color: "bg-secondary/30",
-    content: "It's okay not to be okay. Take a deep breath. Make yourself a cup of tea. Put on your favorite song. You are stronger than you think, and I am so proud of you. 🍵"
+    content: "Stop right there. You are WORTHY of everything good that comes your way. You inspire me with your strength, your humor, your heart. If you won't believe in yourself today, believe in how much I believe in you. You've got this. 💪"
   },
   {
-    id: "happy",
-    title: "Open when you need a hype up",
+    id: "overwhelmed",
+    title: "Open when you feel overwhelmed",
     color: "bg-accent/30",
-    content: "YOU ARE A GODDESS! A QUEEN! AN ICON! seriously, look at you go. The world better watch out because you are unstoppable. Keep shining! ✨"
+    content: "Breathe. Just breathe for a moment. The world can wait. You don't have to figure it all out today. One step at a time. One moment at a time. And whenever you need me to just sit with you in the chaos, I'm here. Always. 🤍"
+  },
+  {
+    id: "reassurance",
+    title: "Open when you need reassurance",
+    color: "bg-primary/20",
+    content: "You are enough. You have always been enough. Your weird jokes, your random thoughts, your messy days—they all make you perfectly, beautifully YOU. I didn't choose you by accident. I choose you every single day. ✨"
+  },
+  {
+    id: "racing",
+    title: "Open when your thoughts won't slow down",
+    color: "bg-secondary/30",
+    content: "I know your brain is running a million miles an hour right now. Let it run. But know this—you're not alone in this. Call me. Text me. Send me your rambling thoughts at 2am. That's what I'm here for. Let's untangle it together. 🌙"
   }
 ];
 
