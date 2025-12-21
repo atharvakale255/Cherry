@@ -5,24 +5,29 @@ export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background with parallax-like feel */}
-      <div 
+      <div
         className="absolute inset-0 z-0 opacity-40 mix-blend-multiply"
         style={{
           backgroundImage: `url(${bgTexture})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
-      
+
       {/* Floating Elements */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-20 left-[10%] w-32 h-32 bg-primary/20 rounded-full blur-3xl"
       />
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 30, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
         className="absolute bottom-20 right-[10%] w-48 h-48 bg-secondary/20 rounded-full blur-3xl"
       />
 
@@ -33,11 +38,11 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="font-hand text-2xl md:text-4xl text-primary-foreground/80 block mb-4 rotate-[-2deg]">
-            To my favorite human...
+            To the anchor who kept me steady
           </span>
         </motion.div>
-        
-        <motion.h1 
+
+        <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -53,18 +58,20 @@ export function Hero() {
           className="mt-8"
         >
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
-            For the late night calls, the miles that don't matter, and for simply being you. 
-            Here's a little piece of my heart.
+            for being there when i needed the most, People had someone to count
+            on, I had you when I didn’t count on anyone
           </p>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 animate-bounce opacity-50"
         >
-          <span className="text-sm font-hand tracking-widest text-muted-foreground">SCROLL DOWN</span>
+          <span className="text-sm font-hand tracking-widest text-muted-foreground">
+            SCROLL DOWN
+          </span>
         </motion.div>
       </div>
     </section>

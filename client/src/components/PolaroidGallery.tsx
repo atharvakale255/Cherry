@@ -7,38 +7,40 @@ const memories = [
   {
     id: 1,
     image: photo1,
-    caption: "That one sunny day ☀️",
+    caption: "The first meet ☀️",
     rotation: -3,
-    delay: 0
+    delay: 0,
   },
   {
     id: 2,
     image: photo2,
-    caption: "Our coffee dates ☕️",
+    caption: "us and our depression",
     rotation: 2,
-    delay: 0.2
+    delay: 0.2,
   },
   {
     id: 3,
     image: photo3,
     caption: "3AM talks 🌙",
     rotation: -2,
-    delay: 0.4
-  }
+    delay: 0.4,
+  },
 ];
 
 export function PolaroidGallery() {
   return (
     <section className="py-24 px-4 overflow-hidden bg-white/30 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-serif mb-4">Memory Lane</h2>
-          <p className="font-hand text-xl text-muted-foreground">Just a few of my favorite moments...</p>
+          <p className="font-hand text-xl text-muted-foreground">
+            Just a few of my favorite moments...
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 justify-items-center">
@@ -54,15 +56,17 @@ export function PolaroidGallery() {
             >
               {/* Tape Effect */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 tape opacity-80 rotate-1" />
-              
+
               <div className="aspect-[4/5] overflow-hidden bg-gray-100 mb-4 filter sepia-[0.2]">
-                <img 
-                  src={memory.image} 
-                  alt={memory.caption} 
+                <img
+                  src={memory.image}
+                  alt={memory.caption}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <p className="font-hand text-2xl text-center text-gray-700">{memory.caption}</p>
+              <p className="font-hand text-2xl text-center text-gray-700">
+                {memory.caption}
+              </p>
             </motion.div>
           ))}
         </div>
