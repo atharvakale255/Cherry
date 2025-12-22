@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { PolaroidGallery } from "@/components/PolaroidGallery";
 import { OpenWhenCards } from "@/components/OpenWhenCards";
 import { ThingsNeverSaid } from "@/components/ThingsNeverSaid";
+import { LighterDays } from "@/components/LighterDays";
 import { Letter } from "@/components/Letter";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -26,6 +27,7 @@ export default function Home() {
         <PolaroidGallery />
         <OpenWhenCards />
         <ThingsNeverSaid />
+        <LighterDays />
         <Letter />
       </main>
 
