@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Pause, SkipBack, SkipForward, Plus, X, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Play, Pause, SkipBack, SkipForward, Heart } from "lucide-react";
 
 interface Song {
   id: number;
@@ -32,52 +31,26 @@ const defaultSongs: Song[] = [
 ];
 
 export function SongsPlaylist() {
-  const [songs, setSongs] = useState<Song[]>(defaultSongs);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [newSong, setNewSong] = useState({ title: "", artist: "", emoji: "🎵" });
   const [likedSongs, setLikedSongs] = useState<number[]>([]);
 
-  const currentSong = songs[currentIndex];
+  const currentSong = defaultSongs[currentIndex];
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % songs.length);
+    setCurrentIndex((prev) => (prev + 1) % defaultSongs.length);
     setIsPlaying(true);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + songs.length) % songs.length);
+    setCurrentIndex((prev) => (prev - 1 + defaultSongs.length) % defaultSongs.length);
     setIsPlaying(true);
-  };
-
-  const handleAddSong = () => {
-    if (newSong.title && newSong.artist) {
-      setSongs([
-        ...songs,
-        {
-          id: songs.length + 1,
-          title: newSong.title,
-          artist: newSong.artist,
-          emoji: newSong.emoji
-        }
-      ]);
-      setNewSong({ title: "", artist: "", emoji: "🎵" });
-      setShowAddForm(false);
-    }
   };
 
   const toggleLike = (id: number) => {
     setLikedSongs((prev) =>
       prev.includes(id) ? prev.filter((songId) => songId !== id) : [...prev, id]
     );
-  };
-
-  const removeSong = (id: number) => {
-    setSongs(songs.filter((song) => song.id !== id));
-    if (currentIndex >= songs.length - 1) {
-      setCurrentIndex(Math.max(0, songs.length - 2));
-    }
   };
 
   return (
@@ -184,15 +157,15 @@ export function SongsPlaylist() {
 
           {/* Song counter */}
           <div className="text-center text-sm text-gray-600 font-hand">
-            {currentIndex + 1} / {songs.length}
+            {currentIndex + 1} / {defaultSongs.length}
           </div>
         </motion.div>
 
         {/* Playlist */}
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3">
           <h3 className="font-serif text-xl text-gray-800 mb-4">Up Next</h3>
           <AnimatePresence>
-            {songs.map((song, index) => (
+            {defaultSongs.map((song, index) => (
               <motion.div
                 key={song.id}
                 initial={{ opacity: 0, x: -20 }}
@@ -236,89 +209,10 @@ export function SongsPlaylist() {
                     }`}
                   />
                 </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeSong(song.id);
-                  }}
-                  className="p-2 rounded-full hover:bg-red-100 transition-colors opacity-0 group-hover:opacity-100"
-                >
-                  <X className="w-4 h-4 text-red-500" />
-                </motion.button>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-
-        {/* Add Song Button */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => setShowAddForm(!showAddForm)}
-          className="w-full py-3 px-4 rounded-xl border-2 border-dashed border-gray-300 hover:border-gray-400 bg-white/50 hover:bg-white transition-all flex items-center justify-center gap-2 font-hand text-gray-700"
-        >
-          <Plus className="w-5 h-5" />
-          Add a song
-        </motion.button>
-
-        {/* Add Song Form */}
-        <AnimatePresence>
-          {showAddForm && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="mt-4 p-6 bg-white/60 rounded-xl border-2 border-gray-200 space-y-4"
-            >
-              <input
-                type="text"
-                placeholder="Song title"
-                value={newSong.title}
-                onChange={(e) =>
-                  setNewSong({ ...newSong, title: e.target.value })
-                }
-                className="w-full p-3 rounded-lg border-2 border-gray-200 focus:border-primary outline-none font-serif"
-              />
-              <input
-                type="text"
-                placeholder="Artist name"
-                value={newSong.artist}
-                onChange={(e) =>
-                  setNewSong({ ...newSong, artist: e.target.value })
-                }
-                className="w-full p-3 rounded-lg border-2 border-gray-200 focus:border-primary outline-none font-serif"
-              />
-              <input
-                type="text"
-                placeholder="Pick an emoji"
-                value={newSong.emoji}
-                onChange={(e) =>
-                  setNewSong({ ...newSong, emoji: e.target.value.slice(0, 2) })
-                }
-                maxLength={2}
-                className="w-full p-3 rounded-lg border-2 border-gray-200 focus:border-primary outline-none font-serif text-center text-2xl"
-              />
-              <div className="flex gap-3">
-                <Button
-                  onClick={handleAddSong}
-                  className="flex-1 bg-primary hover:bg-primary/90 text-white"
-                >
-                  Add Song
-                </Button>
-                <Button
-                  onClick={() => setShowAddForm(false)}
-                  variant="outline"
-                  className="flex-1"
-                >
-                  Cancel
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </section>
   );
