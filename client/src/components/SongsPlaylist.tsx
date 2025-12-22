@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 
 interface Song {
   id: number;
@@ -45,15 +44,17 @@ const defaultSongs: Song[] = [
   }
 ];
 
+const rotations = [-2, 2, -1.5, 1.5];
+
 export function SongsPlaylist() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-white/30 to-primary/5">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-24 px-4 bg-gradient-to-b from-white/30 to-primary/5 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-serif mb-4">Our Playlist</h2>
           <p className="font-hand text-lg text-muted-foreground">
@@ -61,50 +62,60 @@ export function SongsPlaylist() {
           </p>
         </motion.div>
 
-        {/* Songs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Scrapbook-style list */}
+        <div className="space-y-8 relative">
           {defaultSongs.map((song, index) => (
             <motion.a
               key={song.id}
               href={song.spotifyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="group bg-gradient-to-br from-white/60 to-white/40 backdrop-blur-md rounded-2xl p-8 border-2 border-white/50 paper-shadow hover:border-primary/30 transition-all duration-300 cursor-pointer"
-              data-testid={`song-card-${song.id}`}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              whileHover={{ y: -6, rotate: 0 }}
+              style={{ rotate: `${rotations[index]}deg` }}
+              className="group block p-8 bg-white/50 backdrop-blur-sm rounded-2xl border-2 border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-primary/40"
+              data-testid={`song-item-${song.id}`}
             >
-              {/* Emoji */}
-              <motion.div
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="text-5xl mb-6"
-              >
-                {song.emoji}
-              </motion.div>
+              <div className="flex gap-6 items-start">
+                {/* Emoji - Left side */}
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="text-6xl flex-shrink-0"
+                >
+                  {song.emoji}
+                </motion.div>
 
-              {/* Song Title */}
-              <h3 className="text-2xl font-serif text-gray-800 mb-2 group-hover:text-primary transition-colors" data-testid={`text-song-title-${song.id}`}>
-                {song.title}
-              </h3>
+                {/* Content - Right side */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <h3 className="text-2xl font-serif text-gray-800 group-hover:text-primary transition-colors" data-testid={`text-song-title-${song.id}`}>
+                        {song.title}
+                      </h3>
+                      <p className="font-hand text-gray-600 mt-1" data-testid={`text-song-artist-${song.id}`}>
+                        {song.artist}
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Artist */}
-              <p className="font-hand text-gray-600 mb-6" data-testid={`text-song-artist-${song.id}`}>
-                {song.artist}
-              </p>
+                  {/* Reason */}
+                  <p className="font-hand text-base text-gray-700 italic leading-relaxed mb-4 group-hover:text-gray-800 transition-colors">
+                    "{song.reason}"
+                  </p>
 
-              {/* Reason */}
-              <p className="font-hand text-lg text-gray-700 italic leading-relaxed mb-6">
-                "{song.reason}"
-              </p>
-
-              {/* Spotify Link */}
-              <div className="flex items-center gap-2 text-primary font-hand font-semibold group-hover:gap-3 transition-all">
-                Play on Spotify
-                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {/* Play indicator */}
+                  <motion.span
+                    initial={{ opacity: 0.7 }}
+                    whileHover={{ opacity: 1 }}
+                    className="inline-block text-sm font-semibold text-primary group-hover:text-primary font-hand"
+                  >
+                    ▶ Play on Spotify
+                  </motion.span>
+                </div>
               </div>
             </motion.a>
           ))}
