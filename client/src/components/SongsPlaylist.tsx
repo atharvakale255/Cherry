@@ -6,7 +6,7 @@ interface Song {
   artist: string;
   emoji: string;
   reason: string;
-  spotifyUrl: string;
+  embedCode: string;
 }
 
 const defaultSongs: Song[] = [
@@ -16,7 +16,7 @@ const defaultSongs: Song[] = [
     artist: "Lord Huron",
     emoji: "🌙",
     reason: "Because every moment with you feels like a perfect memory I never want to forget",
-    spotifyUrl: "https://open.spotify.com/track/3I8xJVH3EcVLmwqKHLKzK3"
+    embedCode: `<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3hRV0jL3vUpRrcy398teAU?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const defaultSongs: Song[] = [
     artist: "Coldplay",
     emoji: "💛",
     reason: "Because you have a way of making everything better, even when miles apart",
-    spotifyUrl: "https://open.spotify.com/track/7qiZfU4dY1lsylgNesWQN0"
+    embedCode: `<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7LVHVU3tWfcxj5aiPFEW4Q?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const defaultSongs: Song[] = [
     artist: "Bill Withers",
     emoji: "🤝",
     reason: "Because that's exactly what you do - you're always there when I need you most",
-    spotifyUrl: "https://open.spotify.com/track/6x6L3mfr9xyW8gGqx45B5n"
+    embedCode: `<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5zCJvrT3C7cIfHsR5iG95l?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const defaultSongs: Song[] = [
     artist: "Tyler, The Creator ft. Kali Uchis",
     emoji: "💫",
     reason: "Because distance doesn't change what we have - I'll always see you again",
-    spotifyUrl: "https://open.spotify.com/track/7GY7NjVe76yt4Ydg3vLNiH"
+    embedCode: `<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/66CFbqJScx6zRieGllITcs?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
   }
 ];
 
@@ -65,18 +65,15 @@ export function SongsPlaylist() {
         {/* Scrapbook-style list */}
         <div className="space-y-8 relative">
           {defaultSongs.map((song, index) => (
-            <motion.a
+            <motion.div
               key={song.id}
-              href={song.spotifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -6, rotate: 0 }}
               style={{ rotate: `${rotations[index]}deg` }}
-              className="group block p-8 bg-white/50 backdrop-blur-sm rounded-2xl border-2 border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-primary/40"
+              className="group block p-8 bg-white/50 backdrop-blur-sm rounded-2xl border-2 border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40"
               data-testid={`song-item-${song.id}`}
             >
               <div className="flex gap-6 items-start">
@@ -103,21 +100,15 @@ export function SongsPlaylist() {
                   </div>
 
                   {/* Reason */}
-                  <p className="font-hand text-base text-gray-700 italic leading-relaxed mb-4 group-hover:text-gray-800 transition-colors">
+                  <p className="font-hand text-base text-gray-700 italic leading-relaxed mb-6 group-hover:text-gray-800 transition-colors">
                     "{song.reason}"
                   </p>
 
-                  {/* Play indicator */}
-                  <motion.span
-                    initial={{ opacity: 0.7 }}
-                    whileHover={{ opacity: 1 }}
-                    className="inline-block text-sm font-semibold text-primary group-hover:text-primary font-hand"
-                  >
-                    ▶ Play on Spotify
-                  </motion.span>
+                  {/* Spotify Embed */}
+                  <div className="spotify-embed" dangerouslySetInnerHTML={{ __html: song.embedCode }} />
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
