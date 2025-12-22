@@ -12,22 +12,22 @@ interface Song {
 const defaultSongs: Song[] = [
   {
     id: 1,
-    title: "Best Friend",
-    artist: "Saweetie ft. Doja Cat",
-    emoji: "👯"
+    title: "The Night We Met",
+    artist: "Lord Huron",
+    emoji: "👯",
   },
   {
     id: 2,
     title: "See You Again",
     artist: "Tyler, The Creator ft. Kali Uchis",
-    emoji: "🌙"
+    emoji: "🌙",
   },
   {
     id: 3,
     title: "You're My Best Friend",
     artist: "Queen",
-    emoji: "👑"
-  }
+    emoji: "👑",
+  },
 ];
 
 export function SongsPlaylist() {
@@ -43,13 +43,17 @@ export function SongsPlaylist() {
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + defaultSongs.length) % defaultSongs.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + defaultSongs.length) % defaultSongs.length,
+    );
     setIsPlaying(true);
   };
 
   const toggleLike = (id: number) => {
     setLikedSongs((prev) =>
-      prev.includes(id) ? prev.filter((songId) => songId !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((songId) => songId !== id)
+        : [...prev, id],
     );
   };
 
@@ -88,19 +92,21 @@ export function SongsPlaylist() {
             <h3 className="text-2xl md:text-3xl font-serif text-gray-800 mb-2">
               {currentSong.title}
             </h3>
-            <p className="font-hand text-lg text-gray-600">{currentSong.artist}</p>
+            <p className="font-hand text-lg text-gray-600">
+              {currentSong.artist}
+            </p>
 
             {/* Progress bar */}
             <div className="mt-6 bg-white/40 rounded-full h-1 overflow-hidden">
               <motion.div
                 className="h-full bg-gradient-to-r from-primary to-secondary"
                 animate={{
-                  width: isPlaying ? "100%" : "0%"
+                  width: isPlaying ? "100%" : "0%",
                 }}
                 transition={{
                   duration: 3,
                   repeat: isPlaying ? Infinity : 0,
-                  ease: "linear"
+                  ease: "linear",
                 }}
               />
             </div>
