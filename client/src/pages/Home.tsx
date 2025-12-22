@@ -3,6 +3,7 @@ import { PolaroidGallery } from "@/components/PolaroidGallery";
 import { OpenWhenCards } from "@/components/OpenWhenCards";
 import { ThingsNeverSaid } from "@/components/ThingsNeverSaid";
 import { LighterDays } from "@/components/LighterDays";
+import { SongsPlaylist } from "@/components/SongsPlaylist";
 import { Letter } from "@/components/Letter";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <OpenWhenCards />
         <ThingsNeverSaid />
         <LighterDays />
+        <SongsPlaylist />
         <Letter />
       </main>
 

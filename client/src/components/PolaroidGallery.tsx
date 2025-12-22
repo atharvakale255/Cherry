@@ -57,16 +57,19 @@ export function PolaroidGallery() {
               {/* Tape Effect */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 tape opacity-80 rotate-1" />
 
-              <div className="aspect-[4/5] overflow-hidden bg-gray-100 mb-4 filter sepia-[0.2]">
+              <div className="aspect-[4/5] overflow-hidden bg-gray-100 mb-4 filter sepia-[0.2] cursor-pointer">
                 <img
                   src={memory.image}
                   alt={memory.caption}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <p className="font-hand text-2xl text-center text-gray-700">
+              <motion.p 
+                className="font-hand text-2xl text-center text-gray-700 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+              >
                 {memory.caption}
-              </p>
+              </motion.p>
             </motion.div>
           ))}
         </div>

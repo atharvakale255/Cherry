@@ -71,14 +71,19 @@ export function Letter() {
               <span className="text-primary ml-8">Me</span>
             </div>
 
-            <Button 
-              size="lg"
-              className="mt-8 rounded-full px-8 py-6 text-lg bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
-              onClick={triggerConfetti}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Heart className="mr-2 h-6 w-6 fill-current" />
-              Send a Virtual Hug
-            </Button>
+              <Button 
+                size="lg"
+                className="mt-8 rounded-full px-8 py-6 text-lg bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+                onClick={triggerConfetti}
+              >
+                <Heart className="mr-2 h-6 w-6 fill-current animate-pulse" />
+                Send a Virtual Hug
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
       </div>

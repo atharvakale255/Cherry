@@ -66,9 +66,10 @@ export function ThingsNeverSaid() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <button
+              <motion.button
+                whileHover={{ y: -4 }}
                 onClick={() => setExpandedId(expandedId === thing.id ? null : thing.id)}
-                className={`w-full text-left p-6 rounded-lg border-2 border-gray-200 transition-all duration-300 paper-shadow hover:shadow-lg ${
+                className={`w-full text-left p-6 rounded-lg border-2 border-gray-200 transition-all duration-300 paper-shadow hover:shadow-lg cursor-pointer ${
                   expandedId === thing.id
                     ? "bg-primary/20 border-primary/50"
                     : "bg-white/60 hover:bg-white"
@@ -113,7 +114,7 @@ export function ThingsNeverSaid() {
                     </motion.p>
                   )}
                 </AnimatePresence>
-              </button>
+              </motion.button>
             </motion.div>
           ))}
         </div>
