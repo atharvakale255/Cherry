@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import photo1 from "@assets/WhatsApp_Image_2025-12-21_at_8.13.02_PM_1766328626458.jpeg";
 import photo2 from "@assets/WhatsApp_Image_2025-12-21_at_8.23.48_PM_1766329006035.jpeg";
-import photo3 from "@assets/WhatsApp_Image_2025-12-21_at_8.41.48_PM_1766329920976.jpeg";
+import photo3 from "@assets/WhatsApp_Image_2025-12-23_at_12.14.30_PM_1766472333206.jpeg";
 
 const memories = [
   {
@@ -21,7 +21,7 @@ const memories = [
   {
     id: 3,
     image: photo3,
-    caption: "Things I don’t say out loud...",
+    caption: "our stupid convos 💬",
     rotation: -2,
     delay: 0.4,
   },
