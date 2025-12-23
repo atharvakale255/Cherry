@@ -38,7 +38,7 @@ const moments = [
 
 export function LighterDays() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-muted/20 to-white/20">
+    <section className="py-24 px-4 bg-gradient-to-b from-muted/20 to-white/20 dark:from-slate-900/40 dark:to-slate-800/40">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,8 +46,8 @@ export function LighterDays() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">What You Gave Me</h2>
-          <div className="w-16 h-1 bg-primary/40 mx-auto rounded-full" />
+          <h2 className="text-4xl md:text-5xl font-serif mb-4 dark:text-white">What You Gave Me</h2>
+          <div className="w-16 h-1 bg-primary/40 dark:bg-rose-500/60 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -77,28 +77,28 @@ export function LighterDays() {
                   className={`absolute -inset-0.5 bg-gradient-to-br ${moment.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
                 />
 
-                <div className={`relative bg-white p-8 rounded-2xl border-2 ${moment.borderColor} paper-shadow backdrop-blur-sm transition-all duration-300`}>
+                <div className={`relative bg-white dark:bg-slate-700 p-8 rounded-2xl border-2 ${moment.borderColor} dark:border-slate-600 paper-shadow backdrop-blur-sm transition-all duration-300`}>
                   {/* Icon with animation */}
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 3, repeat: Infinity }}
                     className="inline-block mb-4"
                   >
-                    <Icon className={`w-8 h-8 text-primary/60`} />
+                    <Icon className={`w-8 h-8 text-primary/60 dark:text-rose-400/70`} />
                   </motion.div>
 
-                  <h3 className="text-2xl font-serif text-gray-800 mb-3 leading-tight">
+                  <h3 className="text-2xl font-serif text-gray-800 dark:text-white mb-3 leading-tight">
                     {moment.title}
                   </h3>
-                  <p className="font-serif text-gray-600 leading-relaxed">
+                  <p className="font-serif text-gray-600 dark:text-gray-200 leading-relaxed">
                     {moment.description}
                   </p>
 
                   {/* Decorative dots */}
-                  <div className="flex gap-2 mt-6 pt-6 border-t border-gray-200">
-                    <div className="w-2 h-2 rounded-full bg-primary/40" />
-                    <div className="w-2 h-2 rounded-full bg-secondary/40" />
-                    <div className="w-2 h-2 rounded-full bg-accent/40" />
+                  <div className="flex gap-2 mt-6 pt-6 border-t border-gray-200 dark:border-slate-600">
+                    <div className="w-2 h-2 rounded-full bg-primary/40 dark:bg-rose-500/40" />
+                    <div className="w-2 h-2 rounded-full bg-secondary/40 dark:bg-emerald-500/40" />
+                    <div className="w-2 h-2 rounded-full bg-accent/40 dark:bg-violet-500/40" />
                   </div>
                 </div>
               </motion.div>
