@@ -62,10 +62,10 @@ export function ThingsNeverSaid() {
           {things.map((thing, index) => (
             <motion.div
               key={thing.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.12, duration: 0.5 }}
             >
               <motion.button
                 whileHover={{ y: -4 }}

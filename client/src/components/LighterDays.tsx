@@ -56,10 +56,10 @@ export function LighterDays() {
             return (
               <motion.div
                 key={moment.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="group relative"
               >

@@ -71,25 +71,64 @@ export function Letter() {
           </motion.h2>
           
           <div className="prose prose-lg font-serif text-gray-600 leading-loose space-y-4">
-            {[
-              "I wanted to thank you for being there when even breathing felt like a task.",
-              "Having a friend like you felt like having something divine on my side—just quietly steady, never forcing and just present. There were moments this year where things felt heavy, and you made them lighter without even realizing it. You listened and you stayed, and that mattered more than you know.",
-              "I may not be there to talk every single day, but please know this: I value you deeply, every day. That hasn't changed.",
-              "I do miss our late night talks. But still, I believe nights eventually fold into brighter mornings, and I'm grateful we had those moments when we did.",
-              "Thank you for listening even when I was wrong.\nThank you for staying when it would've been easier not to.\nThank you for being an anchor in a year that needed one.",
-              "Distance doesn't erase what's real. And if you ever need me, know that I'm never far—just a little quieter, always present.",
-              "I'm really glad I had you."
-            ].map((paragraph, idx) => (
-              <motion.p
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                {paragraph}
-              </motion.p>
-            ))}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+            >
+              I wanted to thank you for being there when even breathing felt like a task.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              Having a friend like you felt like having something divine on my side—just quietly steady, never forcing and just present. There were moments this year where things felt heavy, and you made them lighter without even realizing it. You listened and you stayed, and that mattered more than you know.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              I may not be there to talk every single day, but please know this: I value you deeply, every day. That hasn't changed.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              I do miss our late night talks. But still, I believe nights eventually fold into brighter mornings, and I'm grateful we had those moments when we did.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              Thank you for listening even when I was wrong.<br/>
+              Thank you for staying when it would've been easier not to.<br/>
+              Thank you for being an anchor in a year that needed one.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              Distance doesn't erase what's real. And if you ever need me, know that I'm never far—just a little quieter, always present.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              I'm really glad I had you.
+            </motion.p>
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-6">
