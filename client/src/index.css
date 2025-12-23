@@ -87,33 +87,76 @@
 /* Dark Mode */
 @layer base {
   .dark {
-    --color-background: hsl(240 10% 15%);
-    --color-foreground: hsl(30 10% 90%);
-    --color-card: hsl(240 10% 20% / 0.8);
-    --color-card-foreground: hsl(30 10% 90%);
-    --color-popover: hsl(240 10% 25%);
-    --color-popover-foreground: hsl(30 10% 90%);
-    --color-muted: hsl(240 10% 30%);
-    --color-muted-foreground: hsl(30 10% 60%);
-    --color-border: hsl(240 10% 25%);
-    --color-input: hsl(240 10% 25%);
+    --color-background: hsl(260 30% 12%);
+    --color-foreground: hsl(30 20% 95%);
+    --color-card: hsl(260 30% 18% / 0.9);
+    --color-card-foreground: hsl(30 20% 95%);
+    --color-popover: hsl(260 30% 22%);
+    --color-popover-foreground: hsl(30 20% 95%);
+    --color-muted: hsl(260 20% 35%);
+    --color-muted-foreground: hsl(30 15% 70%);
+    --color-border: hsl(260 30% 28%);
+    --color-input: hsl(260 30% 28%);
   }
 
   .dark body {
-    @apply bg-gray-900 text-gray-50;
+    @apply text-gray-100;
+    background-color: hsl(260, 30%, 12%);
     background-image: 
-      radial-gradient(at 0% 0%, hsla(240,40%,30%,0.3) 0, transparent 50%), 
-      radial-gradient(at 100% 100%, hsla(260,40%,25%,0.3) 0, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(280,50%,40%,0.4) 0, transparent 50%), 
+      radial-gradient(at 100% 100%, hsla(250,50%,35%,0.4) 0, transparent 50%);
+    background-attachment: fixed;
+    transition: background-color 0.8s ease, background-image 0.8s ease;
   }
 
   .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    @apply text-gray-100;
+    @apply text-gray-50;
+  }
+
+  .dark p, .dark span, .dark div {
+    transition: color 0.5s ease;
   }
 
   .dark .paper-shadow {
     box-shadow: 
-      1px 1px 2px rgba(255,255,255,0.05), 
+      1px 1px 2px rgba(255,255,255,0.08), 
       2px 2px 4px rgba(255,255,255,0.05), 
-      4px 4px 8px rgba(255,255,255,0.05);
+      4px 4px 8px rgba(0,0,0,0.3);
+  }
+
+  .dark .bg-white\/50 {
+    @apply bg-slate-800/40;
+  }
+
+  .dark .bg-white\/40 {
+    @apply bg-slate-700/30;
+  }
+
+  .dark .bg-white\/60 {
+    @apply bg-slate-700/50;
+  }
+
+  .dark .border-gray-200 {
+    @apply border-slate-700;
+  }
+
+  .dark .border-gray-300 {
+    @apply border-slate-600;
+  }
+
+  .dark .text-gray-500 {
+    @apply text-slate-400;
+  }
+
+  .dark .text-gray-600 {
+    @apply text-slate-300;
+  }
+
+  .dark .text-gray-700 {
+    @apply text-slate-200;
+  }
+
+  .dark .text-gray-800 {
+    @apply text-slate-100;
   }
 }
