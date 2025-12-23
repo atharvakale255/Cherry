@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import bgTexture from "@assets/generated_images/dreamy_pastel_watercolor_cloud_background_texture.png";
+import { soundEffects } from "@/lib/soundEffects";
 
 export function Hero() {
   return (
@@ -16,12 +17,12 @@ export function Hero() {
 
       {/* Floating Elements */}
       <motion.div
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+        animate={{ y: [0, -20, 0], rotate: [0, 5, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-20 left-[10%] w-32 h-32 bg-primary/20 rounded-full blur-3xl"
       />
       <motion.div
-        animate={{ y: [0, 30, 0], rotate: [0, -5, 0] }}
+        animate={{ y: [0, 30, 0], rotate: [0, -5, 0], scale: [1, 1.08, 1] }}
         transition={{
           duration: 8,
           repeat: Infinity,
@@ -67,11 +68,16 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 animate-bounce opacity-50"
+          className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 opacity-50 cursor-pointer"
+          onMouseEnter={() => soundEffects.hover()}
         >
-          <span className="text-sm font-hand tracking-widest text-muted-foreground">
+          <motion.span 
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.2, repeat: Infinity }}
+            className="text-sm font-hand tracking-widest text-muted-foreground block"
+          >
             SCROLL DOWN
-          </span>
+          </motion.span>
         </motion.div>
       </div>
     </section>

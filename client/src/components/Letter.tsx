@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
+import { soundEffects } from "@/lib/soundEffects";
 
 export function Letter() {
   const triggerConfetti = () => {
+    soundEffects.success();
     const duration = 3000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };

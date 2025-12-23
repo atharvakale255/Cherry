@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { soundEffects } from "@/lib/soundEffects";
 
 interface Song {
   id: number;
@@ -75,6 +76,7 @@ export function SongsPlaylist() {
               style={{ rotate: `${rotations[index]}deg` }}
               className="group block p-8 bg-white/50 backdrop-blur-sm rounded-2xl border-2 border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40"
               data-testid={`song-item-${song.id}`}
+              onMouseEnter={() => soundEffects.hover()}
             >
               <div className="flex gap-6 items-start">
                 {/* Emoji - Left side */}

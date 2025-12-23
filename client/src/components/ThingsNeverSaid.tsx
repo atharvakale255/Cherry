@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, ChevronDown } from "lucide-react";
+import { soundEffects } from "@/lib/soundEffects";
 
 const things = [
   {
@@ -68,7 +69,11 @@ export function ThingsNeverSaid() {
             >
               <motion.button
                 whileHover={{ y: -4 }}
-                onClick={() => setExpandedId(expandedId === thing.id ? null : thing.id)}
+                onClick={() => {
+                  soundEffects.click();
+                  setExpandedId(expandedId === thing.id ? null : thing.id);
+                }}
+                onMouseEnter={() => soundEffects.hover()}
                 className={`w-full text-left p-6 rounded-lg border-2 border-gray-200 transition-all duration-300 paper-shadow hover:shadow-lg cursor-pointer ${
                   expandedId === thing.id
                     ? "bg-primary/20 border-primary/50"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { soundEffects } from "@/lib/soundEffects";
 
 const cards = [
   {
@@ -69,7 +70,11 @@ export function OpenWhenCards() {
               <Button
                 variant="outline"
                 className={`w-full h-auto min-h-56 md:min-h-64 flex flex-col items-center justify-center gap-4 text-wrap p-6 border-2 border-dashed border-gray-300 hover:border-solid hover:border-gray-400 transition-all duration-300 bg-white/50 hover:bg-white paper-shadow overflow-hidden ${card.color}`}
-                onClick={() => setSelectedCard(card)}
+                onClick={() => {
+                  soundEffects.click();
+                  setSelectedCard(card);
+                }}
+                onMouseEnter={() => soundEffects.hover()}
               >
                 <Mail className="w-10 h-10 text-gray-600 opacity-50 flex-shrink-0" />
                 <span className="font-hand text-lg md:text-xl text-gray-700 leading-tight line-clamp-4">{card.title}</span>
@@ -88,7 +93,10 @@ export function OpenWhenCards() {
                 className="bg-white max-w-lg w-full p-8 rounded-lg shadow-2xl relative"
               >
                 <button 
-                  onClick={() => setSelectedCard(null)}
+                  onClick={() => {
+                    soundEffects.click();
+                    setSelectedCard(null);
+                  }}
                   className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
                 >
                   <X className="w-6 h-6" />
