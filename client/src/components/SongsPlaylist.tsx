@@ -106,6 +106,19 @@ export function SongsPlaylist() {
                     "{song.reason}"
                   </p>
 
+                  {/* Playlist Visualization */}
+                  <div className="flex gap-1 mb-6 h-12 items-end">
+                    {[0.4, 0.8, 0.6, 0.9, 0.5, 0.7, 0.85].map((height, i) => (
+                      <motion.div
+                        key={i}
+                        animate={{ scaleY: [height * 0.6, height, height * 0.6] }}
+                        transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.05 }}
+                        className="flex-1 bg-gradient-to-t from-primary to-secondary/60 rounded-sm opacity-60"
+                        style={{ height: `${height * 100}%` }}
+                      />
+                    ))}
+                  </div>
+
                   {/* Spotify Embed */}
                   <div className="spotify-embed" dangerouslySetInnerHTML={{ __html: song.embedCode }} />
                 </div>

@@ -1,19 +1,30 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import bgTexture from "@assets/generated_images/dreamy_pastel_watercolor_cloud_background_texture.png";
 import { soundEffects } from "@/lib/soundEffects";
 
 export function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background with parallax-like feel */}
-      <div
+    <section ref={ref} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background with parallax */}
+      <motion.div
+        style={{ y: bgY }}
         className="absolute inset-0 z-0 opacity-40 mix-blend-multiply"
-        style={{
-          backgroundImage: `url(${bgTexture})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      >
+        <div
+          style={{
+            backgroundImage: `url(${bgTexture})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </motion.div>
 
       {/* Floating Elements */}
       <motion.div
@@ -60,7 +71,7 @@ export function Hero() {
         >
           <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
             for being there when i needed the most, People had someone to count
-            on, I had you when I didn’t count on anyone
+            on, I had you when I didn't count on anyone
           </p>
         </motion.div>
 

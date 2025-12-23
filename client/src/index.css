@@ -83,3 +83,37 @@
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255,255,255,0.4);
 }
+
+/* Dark Mode */
+@layer base {
+  .dark {
+    --color-background: hsl(240 10% 15%);
+    --color-foreground: hsl(30 10% 90%);
+    --color-card: hsl(240 10% 20% / 0.8);
+    --color-card-foreground: hsl(30 10% 90%);
+    --color-popover: hsl(240 10% 25%);
+    --color-popover-foreground: hsl(30 10% 90%);
+    --color-muted: hsl(240 10% 30%);
+    --color-muted-foreground: hsl(30 10% 60%);
+    --color-border: hsl(240 10% 25%);
+    --color-input: hsl(240 10% 25%);
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-50;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(240,40%,30%,0.3) 0, transparent 50%), 
+      radial-gradient(at 100% 100%, hsla(260,40%,25%,0.3) 0, transparent 50%);
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    @apply text-gray-100;
+  }
+
+  .dark .paper-shadow {
+    box-shadow: 
+      1px 1px 2px rgba(255,255,255,0.05), 
+      2px 2px 4px rgba(255,255,255,0.05), 
+      4px 4px 8px rgba(255,255,255,0.05);
+  }
+}

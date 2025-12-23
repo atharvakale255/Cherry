@@ -51,34 +51,45 @@ export function Letter() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <div className="mb-8 font-hand text-2xl text-gray-500">December 31st, 2024</div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-8 font-hand text-2xl text-gray-500"
+          >
+            December 31st, 2024
+          </motion.div>
           
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-gray-800">To the dearest Nab,</h2>
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-serif text-3xl md:text-4xl mb-6 text-gray-800"
+          >
+            To the dearest Nab,
+          </motion.h2>
           
-          <div className="prose prose-lg font-serif text-gray-600 leading-loose">
-            <p>
-              I wanted to thank you for being there when even breathing felt like a task.
-            </p>
-            <p>
-              Having a friend like you felt like having something divine on my side—just quietly steady, never forcing and just present. There were moments this year where things felt heavy, and you made them lighter without even realizing it. You listened and you stayed, and that mattered more than you know.
-            </p>
-            <p>
-              I may not be there to talk every single day, but please know this: I value you deeply, every day. That hasn't changed.
-            </p>
-            <p>
-              I do miss our late night talks. But still, I believe nights eventually fold into brighter mornings, and I'm grateful we had those moments when we did.
-            </p>
-            <p>
-              Thank you for listening even when I was wrong.<br/>
-              Thank you for staying when it would've been easier not to.<br/>
-              Thank you for being an anchor in a year that needed one.
-            </p>
-            <p>
-              Distance doesn't erase what's real. And if you ever need me, know that I'm never far—just a little quieter, always present.
-            </p>
-            <p>
-              I'm really glad I had you.
-            </p>
+          <div className="prose prose-lg font-serif text-gray-600 leading-loose space-y-4">
+            {[
+              "I wanted to thank you for being there when even breathing felt like a task.",
+              "Having a friend like you felt like having something divine on my side—just quietly steady, never forcing and just present. There were moments this year where things felt heavy, and you made them lighter without even realizing it. You listened and you stayed, and that mattered more than you know.",
+              "I may not be there to talk every single day, but please know this: I value you deeply, every day. That hasn't changed.",
+              "I do miss our late night talks. But still, I believe nights eventually fold into brighter mornings, and I'm grateful we had those moments when we did.",
+              "Thank you for listening even when I was wrong.\nThank you for staying when it would've been easier not to.\nThank you for being an anchor in a year that needed one.",
+              "Distance doesn't erase what's real. And if you ever need me, know that I'm never far—just a little quieter, always present.",
+              "I'm really glad I had you."
+            ].map((paragraph, idx) => (
+              <motion.p
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                {paragraph}
+              </motion.p>
+            ))}
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-6">
