@@ -7,39 +7,45 @@ const things = [
   {
     id: 1,
     emoji: "💭",
-    preview: "How much I admire your strength...",
-    fullText: "How much I admire your strength. The way you face your problems head-on, even when you're scared, inspires me every single day."
+    preview: "I noticed more than i said...",
+    fullText:
+      "I paid attention to the little things, how u showed up, or how u stayed calm, how u cared quietly. I didnt always say it, but I noticed.",
   },
   {
     id: 2,
     emoji: "🌟",
     preview: "That you make me a better person...",
-    fullText: "That you make me a better person. Being your friend has taught me what loyalty, kindness, and real love actually mean."
+    fullText:
+      "That you make me a better person. Being your friend has taught me what loyalty, kindness and being there always actually means.",
   },
   {
     id: 3,
     emoji: "💕",
-    preview: "How deeply I care about you...",
-    fullText: "How deeply I care about you. Sometimes it hits me out of nowhere—this overwhelming feeling that I'm so lucky to have you in my life."
+    preview: "You made the days lighter...",
+    fullText:
+      "Some days felt easier just knowing u existed somewhere in them. That kind of ease doesnt make noise, it just stays..",
   },
   {
     id: 4,
     emoji: "✨",
-    preview: "That you're my favorite person...",
-    fullText: "That you're my favorite person. Not just my best friend—my favorite human to exist on this planet. Period."
+    preview: "i didnt always say thank you right",
+    fullText:
+      "Gratitude isnt always easy for me to put into words, but it was always there, ur efforts mean more to me than anything.",
   },
   {
     id: 5,
     emoji: "🎭",
     preview: "How much your silence means to me...",
-    fullText: "How much your silence means to me. You don't need to fix my problems or have the perfect words. Sometimes you just listen, and that's everything."
+    fullText:
+      "How much your silence means to me. You don't need to fix my problems or have the perfect words. Sometimes you just listen, and that's everything.",
   },
   {
     id: 6,
     emoji: "🌙",
-    preview: "That I think about you more than...",
-    fullText: "That I think about you more than I probably should. You're randomly in my head throughout the day, and it makes me smile."
-  }
+    preview: "That u mattered to me more than u think...",
+    fullText:
+      "Even when I didnt show it well, even when life got chaotic, the connection with u mattered to me in ways I cant explain or say outloud.",
+  },
 ];
 
 export function ThingsNeverSaid() {
@@ -54,8 +60,12 @@ export function ThingsNeverSaid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">Things I Never Said Out Loud</h2>
-          <p className="font-hand text-lg text-muted-foreground">But definitely meant...</p>
+          <h2 className="text-4xl md:text-5xl font-serif mb-4">
+            Things I Never Said Out Loud
+          </h2>
+          <p className="font-hand text-lg text-muted-foreground">
+            But definitely meant...
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
