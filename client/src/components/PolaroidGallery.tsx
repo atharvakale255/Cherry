@@ -43,7 +43,7 @@ export function PolaroidGallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 justify-items-center">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 justify-items-center items-center md:items-stretch">
           {memories.map((memory) => (
             <motion.div
               key={memory.id}
@@ -52,7 +52,7 @@ export function PolaroidGallery() {
               whileHover={{ scale: 1.05, rotate: 0, zIndex: 10 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: memory.delay }}
-              className="bg-white p-4 pb-12 shadow-xl polaroid-shadow max-w-xs transform transition-all duration-300 relative group"
+              className="bg-white dark:bg-slate-800 p-3 md:p-4 pb-8 md:pb-12 shadow-xl polaroid-shadow w-full max-w-xs md:max-w-sm transform transition-all duration-300 relative group"
             >
               {/* Tape Effect */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 tape opacity-80 rotate-1" />

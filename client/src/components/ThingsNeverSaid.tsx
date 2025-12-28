@@ -52,23 +52,23 @@ export function ThingsNeverSaid() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-4 bg-white/40 backdrop-blur-sm">
+    <section className="py-16 md:py-24 px-4 bg-white/40 dark:bg-slate-800/30 backdrop-blur-sm">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-3 md:mb-4 dark:text-white">
             Things I Never Said Out Loud
           </h2>
-          <p className="font-hand text-lg text-muted-foreground">
+          <p className="font-hand text-base md:text-lg text-muted-foreground dark:text-gray-300">
             But definitely meant...
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {things.map((thing, index) => (
             <motion.div
               key={thing.id}
@@ -84,19 +84,19 @@ export function ThingsNeverSaid() {
                   setExpandedId(expandedId === thing.id ? null : thing.id);
                 }}
                 onMouseEnter={() => soundEffects.hover()}
-                className={`w-full text-left p-6 rounded-lg border-2 border-gray-200 transition-all duration-300 paper-shadow hover:shadow-lg cursor-pointer ${
+                className={`w-full text-left p-4 md:p-6 rounded-lg border-2 border-gray-200 dark:border-slate-600 transition-all duration-300 paper-shadow hover:shadow-lg cursor-pointer ${
                   expandedId === thing.id
-                    ? "bg-primary/20 border-primary/50"
-                    : "bg-white/60 hover:bg-white"
+                    ? "bg-primary/20 dark:bg-rose-500/20 border-primary/50 dark:border-rose-500/50"
+                    : "bg-white/60 dark:bg-slate-700/60 hover:bg-white dark:hover:bg-slate-700"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
-                  <div className="text-4xl">{thing.emoji}</div>
+                  <div className="text-3xl md:text-4xl">{thing.emoji}</div>
                   <motion.div
                     animate={{ rotate: expandedId === thing.id ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-gray-400 dark:text-slate-400 flex-shrink-0" />
                   </motion.div>
                 </div>
 
@@ -110,11 +110,11 @@ export function ThingsNeverSaid() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="font-serif text-lg text-gray-700 mt-4 leading-relaxed">
+                      <p className="font-serif text-base md:text-lg text-gray-700 dark:text-gray-200 mt-4 leading-relaxed">
                         {thing.fullText}
                       </p>
                       <div className="flex justify-end mt-4">
-                        <Heart className="w-5 h-5 text-primary fill-primary" />
+                        <Heart className="w-5 h-5 text-primary dark:text-rose-500 fill-primary dark:fill-rose-500" />
                       </div>
                     </motion.div>
                   ) : (
@@ -123,7 +123,7 @@ export function ThingsNeverSaid() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="font-hand text-lg text-gray-600 mt-4"
+                      className="font-hand text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4"
                     >
                       {thing.preview}
                     </motion.p>
@@ -139,9 +139,9 @@ export function ThingsNeverSaid() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-12 md:mt-16"
         >
-          <p className="font-hand text-xl text-gray-600 italic">
+          <p className="font-hand text-lg md:text-xl text-gray-600 dark:text-gray-300 italic">
             And so much more that words can't hold...
           </p>
         </motion.div>

@@ -64,7 +64,7 @@ export function SongsPlaylist() {
         </motion.div>
 
         {/* Scrapbook-style list */}
-        <div className="space-y-8 relative">
+        <div className="space-y-6 md:space-y-8 relative">
           {defaultSongs.map((song, index) => (
             <motion.div
               key={song.id}
@@ -74,53 +74,63 @@ export function SongsPlaylist() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -6, rotate: 0 }}
               style={{ rotate: `${rotations[index]}deg` }}
-              className="group block p-8 bg-white/50 backdrop-blur-sm rounded-2xl border-2 border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40"
+              className="group block p-4 md:p-8 bg-white/50 dark:bg-slate-700/60 backdrop-blur-sm rounded-2xl border-2 border-white/60 dark:border-slate-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40"
               data-testid={`song-item-${song.id}`}
               onMouseEnter={() => soundEffects.hover()}
             >
-              <div className="flex gap-6 items-start">
-                {/* Emoji - Left side */}
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+                {/* Emoji - Hidden on mobile, left side on desktop */}
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
-                  className="text-6xl flex-shrink-0"
+                  className="hidden md:block text-6xl flex-shrink-0"
                 >
                   {song.emoji}
                 </motion.div>
 
-                {/* Content - Right side */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <div>
-                      <h3 className="text-2xl font-serif text-gray-800 group-hover:text-primary transition-colors" data-testid={`text-song-title-${song.id}`}>
-                        {song.title}
-                      </h3>
-                      <p className="font-hand text-gray-600 mt-1" data-testid={`text-song-artist-${song.id}`}>
-                        {song.artist}
-                      </p>
+                {/* Content - Full width on mobile, flex-1 on desktop */}
+                <div className="flex-1 min-w-0 w-full">
+                  <div className="flex items-start justify-between gap-4 mb-3 flex-col md:flex-row">
+                    <div className="flex items-center gap-3">
+                      {/* Emoji shows on mobile */}
+                      <motion.div
+                        animate={{ y: [0, -8, 0] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                        className="md:hidden text-4xl flex-shrink-0"
+                      >
+                        {song.emoji}
+                      </motion.div>
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-serif text-gray-800 dark:text-white group-hover:text-primary transition-colors" data-testid={`text-song-title-${song.id}`}>
+                          {song.title}
+                        </h3>
+                        <p className="font-hand text-sm md:text-base text-gray-600 dark:text-gray-300 mt-1" data-testid={`text-song-artist-${song.id}`}>
+                          {song.artist}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Reason */}
-                  <p className="font-hand text-base text-gray-700 italic leading-relaxed mb-6 group-hover:text-gray-800 transition-colors">
+                  <p className="font-hand text-sm md:text-base text-gray-700 dark:text-gray-200 italic leading-relaxed mb-4 md:mb-6 group-hover:text-gray-800 transition-colors">
                     "{song.reason}"
                   </p>
 
                   {/* Playlist Visualization */}
-                  <div className="flex gap-1 mb-6 h-12 items-end">
+                  <div className="flex gap-1 mb-4 md:mb-6 h-8 md:h-12 items-end">
                     {[0.4, 0.8, 0.6, 0.9, 0.5, 0.7, 0.85].map((height, i) => (
                       <motion.div
                         key={i}
                         animate={{ scaleY: [height * 0.6, height, height * 0.6] }}
                         transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.05 }}
-                        className="flex-1 bg-gradient-to-t from-primary to-secondary/60 rounded-sm opacity-60"
+                        className="flex-1 bg-gradient-to-t from-primary dark:from-rose-500 to-secondary/60 dark:to-emerald-600/60 rounded-sm opacity-60"
                         style={{ height: `${height * 100}%` }}
                       />
                     ))}
                   </div>
 
-                  {/* Spotify Embed */}
-                  <div className="spotify-embed" dangerouslySetInnerHTML={{ __html: song.embedCode }} />
+                  {/* Spotify Embed - Responsive container */}
+                  <div className="spotify-embed w-full overflow-hidden" dangerouslySetInnerHTML={{ __html: song.embedCode }} />
                 </div>
               </div>
             </motion.div>

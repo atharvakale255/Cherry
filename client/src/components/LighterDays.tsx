@@ -50,7 +50,7 @@ export function LighterDays() {
           <div className="w-16 h-1 bg-primary/40 dark:bg-rose-500/60 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
           {moments.map((moment, index) => {
             const Icon = moment.icon;
             return (
@@ -77,7 +77,7 @@ export function LighterDays() {
                   className={`absolute -inset-0.5 bg-gradient-to-br ${moment.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
                 />
 
-                <div className={`relative bg-white dark:bg-slate-700 p-8 rounded-2xl border-2 ${moment.borderColor} dark:border-slate-600 paper-shadow backdrop-blur-sm transition-all duration-300`}>
+                <div className={`relative bg-white dark:bg-slate-700 p-6 md:p-8 rounded-2xl border-2 ${moment.borderColor} dark:border-slate-600 paper-shadow backdrop-blur-sm transition-all duration-300`}>
                   {/* Icon with animation */}
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
@@ -87,10 +87,10 @@ export function LighterDays() {
                     <Icon className={`w-8 h-8 text-primary/60 dark:text-rose-400/70`} />
                   </motion.div>
 
-                  <h3 className="text-2xl font-serif text-gray-800 dark:text-white mb-3 leading-tight">
+                  <h3 className="text-xl md:text-2xl font-serif text-gray-800 dark:text-white mb-3 leading-tight">
                     {moment.title}
                   </h3>
-                  <p className="font-serif text-gray-600 dark:text-gray-200 leading-relaxed">
+                  <p className="font-serif text-sm md:text-base text-gray-600 dark:text-gray-200 leading-relaxed">
                     {moment.description}
                   </p>
 

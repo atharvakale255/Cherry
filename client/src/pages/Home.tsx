@@ -19,7 +19,7 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen relative dark:bg-slate-950 dark:text-white transition-all duration-700 ease-in-out">
+    <div className="min-h-screen relative dark:bg-slate-950 dark:text-white transition-all duration-700 ease-in-out overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-50"

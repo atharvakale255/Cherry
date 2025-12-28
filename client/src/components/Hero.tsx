@@ -49,7 +49,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="font-hand text-2xl md:text-4xl text-primary-foreground/80 block mb-4 rotate-[-2deg]">
+          <span className="font-hand text-lg sm:text-2xl md:text-4xl text-primary-foreground/80 block mb-4 rotate-[-2deg]">
             To the anchor who kept me steady
           </span>
         </motion.div>
@@ -58,9 +58,9 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl lg:text-9xl font-serif text-foreground tracking-tight leading-[0.9]"
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-foreground tracking-tight leading-[0.9] dark:text-white"
         >
-          Thank <span className="text-primary/60 italic">You</span>
+          Thank <span className="text-primary/60 dark:text-rose-400/60 italic">You</span>
         </motion.h1>
 
         <motion.div
@@ -69,7 +69,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-8"
         >
-          <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground dark:text-gray-300 font-light max-w-lg mx-auto leading-relaxed">
             for being there when i needed the most, People had someone to count
             on, I had you when I didn't count on anyone
           </p>

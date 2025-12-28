@@ -66,7 +66,7 @@ export function OpenWhenCards() {
           Open When...
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {cards.map((card, index) => (
             <motion.div
               key={card.id}
@@ -77,15 +77,15 @@ export function OpenWhenCards() {
             >
               <Button
                 variant="outline"
-                className={`w-full h-auto min-h-56 md:min-h-64 flex flex-col items-center justify-center gap-4 text-wrap p-6 border-2 border-dashed border-gray-300 dark:border-slate-600 hover:border-solid hover:border-gray-400 dark:hover:border-slate-500 transition-all duration-300 bg-white/50 dark:bg-slate-700/80 hover:bg-white dark:hover:bg-slate-700 paper-shadow overflow-hidden ${card.color} dark:bg-slate-700/70`}
+                className={`w-full h-auto min-h-40 sm:min-h-48 md:min-h-56 lg:min-h-64 flex flex-col items-center justify-center gap-3 text-wrap p-4 md:p-6 border-2 border-dashed border-gray-300 dark:border-slate-600 hover:border-solid hover:border-gray-400 dark:hover:border-slate-500 transition-all duration-300 bg-white/50 dark:bg-slate-700/80 hover:bg-white dark:hover:bg-slate-700 paper-shadow overflow-hidden ${card.color} dark:bg-slate-700/70`}
                 onClick={() => {
                   soundEffects.click();
                   setSelectedCard(card);
                 }}
                 onMouseEnter={() => soundEffects.hover()}
               >
-                <Mail className="w-10 h-10 text-gray-600 dark:text-slate-300 opacity-50 flex-shrink-0" />
-                <span className="font-hand text-lg md:text-xl text-gray-700 dark:text-white leading-tight line-clamp-4">
+                <Mail className="w-8 md:w-10 h-8 md:h-10 text-gray-600 dark:text-slate-300 opacity-50 flex-shrink-0" />
+                <span className="font-hand text-base md:text-lg lg:text-xl text-gray-700 dark:text-white leading-tight line-clamp-4 px-2">
                   {card.title}
                 </span>
               </Button>
